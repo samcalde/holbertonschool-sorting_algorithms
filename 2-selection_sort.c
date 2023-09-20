@@ -10,27 +10,31 @@
 void selection_sort(int *array, size_t size)
 {
 	unsigned long int i, j;
-	int compare, temp, change;
+	int lesser, temp;
+	char change;
 
 	if (array == NULL)
 		return;
 
 	for (i = 0; i < (size - 1); i++)
 	{
-		change = 0;
-		compare = array[i];
+		change = 'f';
+		lesser = i;
 		for (j = (i + 1); j < size; j++)
 		{
-			if (compare > array[j])
+			if (array[lesser] > array[j])
 			{
-				temp = array[j];
-				array[j] = compare;
-				compare = temp;
-				array[i] = compare;
-				change = 1;
+				lesser = j;
+				change = 't';
 			}
 		}
-		if (change == 1)
+		if (change == 't')
+		{
+			temp = array[lesser];
+			array[lesser] = array[i];
+			array[i] = temp; 
 			print_array(array, size);
+		}
+
 	}
 }
