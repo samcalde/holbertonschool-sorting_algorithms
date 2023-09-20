@@ -10,13 +10,14 @@
 void selection_sort(int *array, size_t size)
 {
 	unsigned long int i, j;
-	int compare, temp;
+	int compare, temp, change;
 
 	if (array == NULL)
 		return;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < (size - 1); i++)
 	{
+		change = 0;
 		compare = array[i];
 		for (j = (i + 1); j < size; j++)
 		{
@@ -26,8 +27,10 @@ void selection_sort(int *array, size_t size)
 				array[j] = compare;
 				compare = temp;
 				array[i] = compare;
+				change = 1;
 			}
 		}
-		print_array(array, size);
+		if (change == 1)
+			print_array(array, size);
 	}
 }
