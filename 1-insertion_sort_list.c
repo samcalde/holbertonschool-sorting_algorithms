@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - sorts an array of integers using Insertion sort algorithm
+ * insertion_sort_list - sorts an array of integers using Insertion algorithm
  * @list: list to arrange
  *
  * Return: void
@@ -26,6 +26,7 @@ void insertion_sort_list(listint_t **list)
 /**
  * check_nodes_backwards - checks for matches up to the beggining of list
  * @node: node to start
+ * @list: list to print, or pass to swap to update head of list
  *
  * Return: void
  */
