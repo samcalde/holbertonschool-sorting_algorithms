@@ -11,8 +11,8 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp = NULL;
 
 	if (*list == NULL || list == NULL)
-		return;
-	
+		return (NULL);
+
 	temp = (*list)->next;
 
 	while (temp != NULL)
@@ -26,11 +26,11 @@ void insertion_sort_list(listint_t **list)
 /**
  * check_nodes_backwards - checks for matches up to the beggining of list
  * @node: node to start
- * 
+ *
  * Return: void
  */
 void check_nodes_backwards(listint_t *node, listint_t **list)
-{	
+{
 	if (node->prev == NULL)
 		return;
 
@@ -40,14 +40,13 @@ void check_nodes_backwards(listint_t *node, listint_t **list)
 		print_list(*list);
 		check_nodes_backwards(node, list);
 	}
-	
-	return;
 }
 
 /**
  * swap_nodes - swaps node A and B on a doubled linked list
  * @nodeA: node A, which goes first in the list
  * @nodeB: node B, which goes after node A
+ * @list: head of the list, in case it needs to be updated
  *
  * Return: void
  */
@@ -63,7 +62,7 @@ void swap_nodes(listint_t *nodeA, listint_t *nodeB, listint_t **list)
 
 	if (nodeB->prev != NULL)
 		nodeB->prev->next = nodeB;
-	
+
 	if (nodeB->prev == NULL)
 		*list = nodeB;
 }
