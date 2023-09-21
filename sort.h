@@ -18,6 +18,7 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+void sort_array(int *array, int min, int max, size_t size);
 void check_nodes_backwards(listint_t *node, listint_t **list);
 void swap_nodes(listint_t *nodeA, listint_t *nodeB, listint_t **list);
 void print_array(const int *array, size_t size);
